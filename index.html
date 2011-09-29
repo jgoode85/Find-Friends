@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<!-- prevent cache -->
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="pragma" content="no-cache">
+    <title>FindFriends</title>
+    <link href="https://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojox/mobile/themes/iphone/iphone.css" rel="stylesheet" />
+    <link href="styles/style.css" rel="stylesheet" />
+    <script>
+        djConfig = {
+            isDebug: true,
+            baseUrl: './',
+            modulePaths: {
+                findfriends: 'js/findfriends'
+            },
+            parseOnLoad: true
+        };
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojo/dojo.xd.js.uncompressed.js"></script>
+    <script type="text/javascript">
+       // Use the lightweight parser
+		dojo.require("dojox.mobile.parser");
+		
+		// Require Dojo mobile
+		dojo.require("dojox.mobile");
+		 
+		// Get additional, non-standard dojox.mobile widgets
+		dojo.require("dojox.mobile.ScrollableView");
+		
+		// TabBarButton is included here
+		dojo.require("dojox.mobile.TabBar"); 
+		 
+		dojo.require("findfriends.MainListView");
+		 
+		// Require the compat if the client isn't Webkit-based
+		dojo.requireIf(!dojo.isWebKit,"dojox.mobile.compat");
+
+    </script>
+	<script src="http://connect.facebook.net/en_US/all.js"></script>
+     
+    </head>
+    <body>
+	<div id="fb-root"></div>
+	<script>
+         FB.init({ 
+            appId:'260314480675881', 
+			cookie:true, 
+            status:true,
+			oauth:true
+         });
+      </script>
+	<div dojoType="findfriends.MainListView" selected="true">
+    <h1 dojoType="dojox.mobile.Heading" fixed="top">
+        <!-- the refresh button -->
+       <div id="refreshButton"  style="display:none" dojoType="dojox.mobile.ToolBarButton" class="mblDomButton toolBarButton" style="float:right;">Refresh</div>
+       <div id="loginButton"  style="display:block" dojoType="dojox.mobile.ToolBarButton" class="mblDomButton toolBarButton" style="float:right;">Login</div>
+		Find Friendster
+    </h1>
+    <ul id="checkinList" dojoType="dojox.mobile.RoundRectList">
+        <li dojoType="dojox.mobile.ListItem" class="checkinListItem">
+        
+        	<div class="checkinContent">
+        		<div class="checkinUsers">You need to login to Facebook in order to view information.  Click the Login button above.
+        		</div>
+        	</div>
+        </li>
+
+    </ul>
+	</div>
+    </body>
+</html>
