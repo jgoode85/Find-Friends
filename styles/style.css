@@ -1,0 +1,29 @@
+/* content wrapper for Facebook data */
+.checkinContent {
+    padding-top:5px;
+}
+ 
+/* username formatting */
+.checkinUsers {
+    font-size:80%;
+}
+ 
+/* text formatting for checkin data */
+.checkinLocation {
+    font-size:70%;
+    font-weight:normal;
+    padding-right:50px;
+    padding-bottom:10px;
+}
+ 
+
+/*Increases height of the list item*/
+.checkinListItem {
+	line-height: 18px;
+	height: auto;
+}
+
+/*Moves toolbar button to right side of screen*/
+.toolBarButton {
+	float:right;
+}
