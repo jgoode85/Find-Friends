@@ -126,7 +126,7 @@ dojo.declare("findfriends.MainListView", [dojox.mobile.ScrollableView], {
 			}
 			
 			//If no search data within the radius was found, display a message to the user that we could not find there friends
-			if(notData){
+			if(noData){
 				
 				//create a new list node and add it to the list of FB data
 				var checkinList = dojo.byId("checkinList");
