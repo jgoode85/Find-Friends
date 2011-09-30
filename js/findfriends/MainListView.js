@@ -114,10 +114,24 @@ dojo.declare("findfriends.MainListView", [dojox.mobile.ScrollableView], {
 							listItemContent = listItemContent + '<div class="checkinMiles">' + distance + ' miles</div>';
 						}
 						
-						listItemContent = listItemContent + '<div class="checkinUsers">' + people + '</div>'+
-						'<div class="checkinLocation">' + fbRow.place.name + ', ' + fbRow.place.location.street + ', ' +
-						fbRow.place.location.city + ', ' + fbRow.place.location.state + '</div></div>';   	
+						var address = "";
 						
+						if(fbRow.place.location.street != null){
+							address = fbRow.place.location.street + ',';
+						}
+						
+						if(fbRow.place.location.city != null){
+							address = address + fbRow.place.location.city + ',';
+						}
+						
+						if(fbRow.place.location.state != null){
+							address = address + fbRow.place.location.state;
+						}
+						
+						listItemContent = listItemContent + '<div class="checkinUsers">' + people + '</div>'+
+						'<div class="checkinLocation">' + fbRow.place.name + ', ' + address + '</div></div>';   	
+
+												
 						//Update the content of the ListItem with the formatted data
 						item.containerNode.innerHTML = listItemContent;
 					
