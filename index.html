@@ -20,15 +20,17 @@
         };
     </script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojo/dojo.xd.js.uncompressed.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  	<script type="text/javascript" src="http://code.google.com/apis/gears/gears_init.js"></script>
     <script type="text/javascript">
-       // Use the lightweight parser
+
 		dojo.require("dojox.mobile.parser");
 		
-		// Require Dojo mobile
 		dojo.require("dojox.mobile");
 		 
-		// Get additional, non-standard dojox.mobile widgets
 		dojo.require("dojox.mobile.ScrollableView");
+		
+		dojo.require("dojox.mobile.app.TextBox");
 		
 		// TabBarButton is included here
 		dojo.require("dojox.mobile.TabBar"); 
@@ -43,32 +45,48 @@
      
     </head>
     <body>
-	<div id="fb-root"></div>
-	<script>
-         FB.init({ 
-            appId:'260314480675881', 
-			cookie:true, 
-            status:true,
-			oauth:true
-         });
-      </script>
-	<div dojoType="findfriends.MainListView" selected="true">
-    <h1 dojoType="dojox.mobile.Heading" fixed="top">
-        <!-- the refresh button -->
-       <div id="refreshButton"  style="display:none" dojoType="dojox.mobile.ToolBarButton" class="mblDomButton toolBarButton" style="float:right;">Refresh</div>
-       <div id="loginButton"  style="display:block" dojoType="dojox.mobile.ToolBarButton" class="mblDomButton toolBarButton" style="float:right;">Login</div>
-		Find Friendster
-    </h1>
-    <ul id="checkinList" dojoType="dojox.mobile.RoundRectList">
-        <li dojoType="dojox.mobile.ListItem" class="checkinListItem">
-        
-        	<div class="checkinContent">
-        		<div class="checkinUsers">You need to login to Facebook in order to view information.  Click the Login button above.
-        		</div>
-        	</div>
-        </li>
-
-    </ul>
-	</div>
+		<div id="fb-root"></div>
+		<script>
+			 FB.init({ 
+				appId:'260314480675881', 
+				cookie:true, 
+				status:true,
+				oauth:true
+			 });
+		  </script>
+		<div id="checkins" dojoType="findfriends.MainListView" selected="true">
+		<h1 dojoType="dojox.mobile.Heading" fixed="top">
+			<!-- the refresh button -->
+		   <div id="refreshButton"  style="display:none" dojoType="dojox.mobile.ToolBarButton" class="mblDomButton toolBarButton" style="float:right;">Refresh</div>
+		   <div id="loginButton"  style="display:block" dojoType="dojox.mobile.ToolBarButton" class="mblDomButton toolBarButton" style="float:right;">Login</div>
+			Find Your Friends
+		</h1>
+		<ul id="checkinList" dojoType="dojox.mobile.RoundRectList">
+			<li dojoType="dojox.mobile.ListItem" class="checkinListItem">
+			
+				<div class="checkinContent">
+					<div class="checkinUsers">You need to login to Facebook in order to view information.  Click the Login button above.
+					</div>
+				</div>
+			</li>
+		</ul>
+		</div>
+		<div id="settings" dojoType="dojox.mobile.ScrollableView">
+			<h1 dojoType="dojox.mobile.Heading">Settings</h1>
+			<ul dojoType="dojox.mobile.RoundRectList">
+				<li dojoType="dojox.mobile.ListItem">
+				<div class="checkinContent">
+					<div class="checkinUsers" style="float:left;">Search Radius in Miles
+					</div><input id="searchRadius" dojoType="dojox.mobile.app.TextBox" class="settingsTextBox" maxLength="4" size="4" value="50" />
+				</div>
+				
+				</li>
+			</ul>
+		</div>
+		<ul dojoType="dojox.mobile.TabBar"  style="margin-top:-49px;">
+		<!-- All iconPos values specify: top left width height -->
+			<li dojoType="dojox.mobile.TabBarButton" iconPos1="0,0,29,30" iconPos2="29,0,29,30" selected="true" moveTo="checkins">Checkins</li>
+			<li dojoType="dojox.mobile.TabBarButton" iconPos1="0,29,29,30" iconPos2="29,29,29,30" moveTo="settings">Settings</li>
+		</ul>
     </body>
 </html>

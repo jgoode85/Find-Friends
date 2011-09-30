@@ -15,6 +15,15 @@
     padding-right:50px;
     padding-bottom:10px;
 }
+
+/*Text formatting for the distance*/
+.checkinMiles {
+    float:right;
+    color:#777;
+    font-size:65%;
+    font-weight:normal;
+    padding-right:10px;
+}
  
 
 /*Increases height of the list item*/
@@ -27,3 +36,11 @@
 .toolBarButton {
 	float:right;
 }
+
+.settingsTextBox {
+	margin-top: 5px;
+	float: right;
+	font-family: "Helvetica Neue", Helvetica;
+	font-size: 11px;
+}
+
